@@ -106,7 +106,11 @@
               // Perform any desired action after successful login
               sessionStorage.setItem("fullname", data.fullname);
               sessionStorage.setItem("role", data.role);
-              location.href = "/";
+              if (data.role=="professor"){
+              location.href = "/main_professor";
+              }else{
+                location.href ="/main_aluno";
+              }
             } else {
               alert(data?.erro ?? "Erro não identificado");
             }

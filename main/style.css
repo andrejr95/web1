@@ -9,9 +9,9 @@ body {
 	font-size: 16px;
 }
 #papper{
-	scale: center/cover;
-	width: 100%;
-	height: calc(100vh - 200px);
+	
+	max-width: 100%; 
+	height: auto;
 }
 #search {
 	margin-bottom: 40px;
@@ -21,7 +21,7 @@ body {
 
 #search div {
 	background-color:#ffe5f0;
-	border:solid 4px #c999af;
+	border:solid 4px white;
 	border-radius:10px;
 	width:100%;
 	height:32px;
@@ -59,8 +59,8 @@ body {
 	
 }
 header {
-	background-color: #ffe5f0;
-	color: #fff;
+	background-color: #5086c1;
+	color:white;
 	padding: 10px;
 	display: flex;
 	flex-direction: row;
@@ -85,20 +85,17 @@ nav ul li {
 }
 
 nav ul li a {
-	color: #c999af;
+	color: white;
 	text-decoration: none;
 	font-weight: bold;
 }
 
-footer{
-	background-color: #ffe5f0;
-	color: #fff;
-	padding: 40px;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	width: 100%;
-}
+.footer {
+	background-color: #5086c1;
+	padding: 10px;
+	color: white;
+	text-align: center;
+	margin-top: 100px;
+  }
 
 

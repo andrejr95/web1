@@ -47,7 +47,7 @@ app.post("/cadastro", (req, res) => {
 });
 
 app.post("/disponibilizar", (req, res) => {
-  const { materia, dia, mes, ano, hora, minuto, role, fullname } = req.body;
+  const { materia, dia, mes, ano, hora, minuto, role, fullname,marcada } = req.body;
 
   // Ler o arquivo usuarios.json (certifique-se de ter o arquivo existente)
   fs.readFile("dados.json", "utf8", (err, data) => {
@@ -131,14 +131,22 @@ app.get("/login", (req, res) => {
   res.sendFile(__dirname + "/login.html");
 });
 
-app.get("/aulas_marcadas", (req, res) => {
-  res.sendFile(__dirname + "/aulas_marcadas.html");
+app.get("/aulas_disponibilizadas", (req, res) => {
+  res.sendFile(__dirname + "/aulas_disponibilizadas.html");
 });
 
 app.get("/disponibilizar", (req, res) => {
   res.sendFile(__dirname + "/disponibilizar.html");
 });
-
+app.get("/main_professor", (req, res) => {
+  res.sendFile(__dirname + "/main_professor.html");
+});
+app.get("/main_aluno", (req, res) => {
+  res.sendFile(__dirname + "/main_aluno.html");
+});
+app.get("/marcar_aula", (req, res) => {
+  res.sendFile(__dirname + "/marcar_aula.html");
+});
 app.use("/", express.static(path.resolve("./")));
 
 app.listen(8080, () => {

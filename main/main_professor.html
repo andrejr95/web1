@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Minha Página</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .header {
+            background-color: #5086c1;
+            padding: 20px;
+            color: white;
+            display: flex;
+            align-items: center;
+            margin-bottom: 100px;
+        }
+
+        .header-title {
+            flex: 1;
+        }
+
+        .header-links {
+            display: flex;
+            gap: 10px;
+        }
+
+        .header-links a {
+            color: white;
+            text-decoration: none;
+        }
+        .body-title h1{
+            margin-left: 5%;
+            color: #5086c1;
+        }
+
+        .footer {
+            background-color: #5086c1;
+            padding: 10px;
+            color: white;
+            text-align: center;
+            margin-top: 100px;
+        }
+
+        .container {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            padding: 0 50px;
+            height: 100%;
+        }
+
+        .button-container {
+            text-align: center;
+            width: 100%;
+            max-width: 90%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .button {
+            height: 90%;
+            flex-grow: 1;
+            padding: 20px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+
+        .button:nth-child(1),
+        .button:nth-child(2) {
+            background-color: #84b6f4;
+            color: white;
+        }
+
+        .button:nth-child(3) {
+            background-color: rgb(250, 87, 87);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="header-title">
+            <h1>Minha Página</h1>
+        </div>
+        <div class="header-links">
+            <a href="/">Home</a>
+            <a href="/">Logout</a>
+            <a href="#">Perfil</a>
+        </div>
+    </div>
+    <div class="body-title"><h1>Área do Professor</h1></div>
+
+    <div class="container">
+        <div class="button-container">
+            <button class="button" onclick="disponibilizar()">Disponibilizar aula</button>
+            <button class="button" onclick="location.href='/aulas_disponibilizadas'">Aulas Disponibilizadas</button>
+            <button class="button"onclick="location.href='/'">Sair</button>
+        </div>
+    </div>
+
+    <script>
+        const disponibilizar = () => {
+          const role = sessionStorage.getItem("role");
+          if (role == "professor") location.href = "/disponibilizar";
+          else alert("Acesso não permitido");
+        };
+      </script>
+
+    <div class="footer">
+        <p>&copy; 2023 Minha Página. Todos os direitos reservados.</p>
+    </div>
+</body>
+</html>

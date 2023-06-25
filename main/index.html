@@ -22,21 +22,13 @@
       <section>
         <img
           id="papper"
-          src="cookie-the-pom-gySMaocSdqs-unsplash.jpg"
+          src="main_header.jpg"
           alt="MathIncon"
         />
       </section>
       <br />
       <br />
-      <div style="text-align: center">
-        <h2 style="margin-bottom: 10px">Aulas</h2>
-        <div>
-          <button onclick="location.href='/aulas_marcadas'">
-            Ver Disponiveis
-          </button>
-          <button onclick="cadastrar()">Cadastrar Aulas</button>
-        </div>
-      </div>
+
       <section id="services">
         <div class="service">
           <h3>Aulas de Português</h3>
@@ -77,13 +69,8 @@
       </section>
     </main>
 
-    <footer></footer>
-    <script>
-      const cadastrar = () => {
-        const role = sessionStorage.getItem("role");
-        if (role == "professor") location.href = "/disponibilizar";
-        else alert("Acesso não permitido");
-      };
-    </script>
+    <div class="footer">
+      <p>&copy; 2023 Minha Página. Todos os direitos reservados.</p>
+  </div>
   </body>
 </html>

@@ -130,7 +130,7 @@
         <h1>Minha Página</h1>
       </div>
       <div class="header-links">
-        <a href="/">Home</a>
+        <a href="/main_professor.html">Home</a>
       </div>
     </div>
 
@@ -218,7 +218,7 @@
         const ano = document.getElementById("ano").value;
         const hora = document.getElementById("hora").value;
         const minuto = document.getElementById("minuto").value;
-        const realizada = false;
+        const marcada = false;
 
         const role = sessionStorage.getItem("role");
         const fullname = sessionStorage.getItem("fullname");
@@ -232,6 +232,7 @@
           minuto,
           role,
           fullname,
+          marcada
         };
 
         fetch("/disponibilizar", {

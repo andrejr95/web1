@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Minha Página - Aulas Disponibilizadas</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+      }
+
+      .header {
+        background-color: #5086c1;
+        padding: 20px;
+        color: white;
+        display: flex;
+        align-items: center;
+        margin-bottom: 100px;
+      }
+
+      .header-title {
+        flex: 1;
+      }
+
+      .header-links {
+        display: flex;
+        gap: 10px;
+      }
+
+      .header-links a {
+        color: white;
+        text-decoration: none;
+      }
+
+      .footer {
+        background-color: #5086c1;
+        padding: 10px;
+        color: white;
+        text-align: center;
+        margin-top: 100px;
+      }
+
+      .container {
+        flex-grow: 1;
+        display: flex;
+        justify-content: center;
+        padding: 0 50px;
+        height: 100%;
+      }
+
+      .form-container {
+        width: 100%;
+        max-width: 600px;
+        background-color: #f2f2f2;
+        padding: 20px;
+        border-radius: 5px;
+        align-self: center;
+      }
+
+      .form-container h2 {
+        margin-top: 0;
+        color: #5086c1;
+      }
+
+      .form-group {
+        margin-bottom: 20px;
+      }
+
+      .form-group label {
+        display: block;
+        font-weight: bold;
+      }
+
+      .form-group select,
+      .form-group input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      .form-group select {
+        height: 40px;
+      }
+
+      .form-group .date-container {
+        display: flex;
+        gap: 10px;
+      }
+
+      .form-group .date-container input[type="number"] {
+        width: 60px;
+      }
+
+      .form-group .time-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .form-group .time-container input[type="number"] {
+        width: 60px;
+      }
+
+      .form-group .time-container span {
+        font-weight: bold;
+      }
+
+      .form-group .button-container {
+        text-align: center;
+      }
+
+      .form-group .button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #84b6f4;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="header-title">
+        <h1>Minha Página</h1>
+      </div>
+      <div class="header-links">
+        <a href="/main_aluno.html">Home</a>
+      </div>
+    </div>
+    <div class="container" style="flex-flow: column">
+      <h2 style="width: 100% !important">Aulas Disponibilizadas</h2>
+      <div style="width: 100% !important">
+        <ul id="aulas-lista"></ul>
+      </div>
+    </div>
+
+    <script>
+      // Função para carregar as aulas marcadas a partir do JSON
+      function carregarAulasDisponibilizadas() {
+        // Ler o arquivo JSON localmente
+        fetch("dados.json")
+          .then((response) => response.json())
+          .then((data) => exibirAulasDisponibilizadas(data))
+          .catch((error) => console.error(error));
+      }
+
+      // Função para exibir as aulas marcadas na lista
+      function exibirAulasDisponibilizadas(aulas) {
+        console.log(aulas);
+        var lista = document.getElementById("aulas-lista");
+
+        aulas.forEach((aula) => {
+          var listItem = document.createElement("li");
+
+          var materia = document.createElement("div");
+          materia.textContent = "Matéria: " + aula.materia;
+          listItem.appendChild(materia);
+
+          var professor = document.createElement("div");
+          professor.textContent = "Professor: " + aula.fullname;
+          listItem.appendChild(professor);
+
+          var dataHora = document.createElement("div");
+          dataHora.textContent = `Data e Hora: ${aula.dia.padStart(
+            2,
+            "0"
+          )}/${aula.mes.padStart(2, "0")}/${aula.ano} às ${aula.hora.padStart(
+            2,
+            "0"
+          )}:${aula.minuto.padStart(2, "0")}`;
+          listItem.appendChild(dataHora);
+
+            var realizadoLabel = document.createElement("label");
+            var realizadoCheckbox = document.createElement("input");
+            realizadoCheckbox.type = "checkbox";
+            realizadoLabel.appendChild(realizadoCheckbox);
+            realizadoLabel.appendChild(document.createTextNode("Marcar"));
+            if(realizadoCheckbox.checked){
+              aula.marcada=true;
+            }
+            listItem.appendChild(realizadoLabel);
+
+          lista.appendChild(listItem);
+        });
+      }
+
+      // Carregar as aulas marcadas ao carregar a página
+      document.addEventListener("DOMContentLoaded", carregarAulasDisponibilizadas);
+    </script>
+    <div class="footer">
+      <p>&copy; 2023 Minha Página. Todos os direitos reservados.</p>
+    </div>
+  </body>
+</html>
