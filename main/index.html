@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Site de Aulas de Reforço Escolar</title>
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1></h1>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="cadastro">Cadastrar</a></li>
+          <li><a href="login">Login</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section>
+        <img
+          id="papper"
+          src="cookie-the-pom-gySMaocSdqs-unsplash.jpg"
+          alt="MathIncon"
+        />
+      </section>
+      <br />
+      <br />
+      <div style="text-align: center">
+        <h2 style="margin-bottom: 10px">Aulas</h2>
+        <div>
+          <button onclick="location.href='/aulas_marcadas'">
+            Ver Disponiveis
+          </button>
+          <button onclick="cadastrar()">Cadastrar Aulas</button>
+        </div>
+      </div>
+      <section id="services">
+        <div class="service">
+          <h3>Aulas de Português</h3>
+          <img
+            id="myImg"
+            src="portugues.avif"
+            alt="PortuIncon"
+            style="width: 100%; max-width: 300px"
+          />
+
+          <p>Oferecemos aulas de português para alunos de todos os níveis.</p>
+          <!-- <button>Ver Disponiveis</button> -->
+        </div>
+
+        <div class="service">
+          <h3>Aulas de Matemática</h3>
+          <img
+            id="myImg"
+            src="matematica.png"
+            alt="MathIncon"
+            style="width: 100%; max-width: 300px"
+          />
+          <p>Oferecemos aulas de Matemática para alunos de todos os níveis.</p>
+          <!-- <button>Ver Disponiveis</button> -->
+        </div>
+
+        <div class="service">
+          <h3>Aulas de Ciências</h3>
+          <img
+            id="myImg"
+            src="ciencias.png"
+            alt="CienceIcon"
+            style="width: 100%; max-width: 300px"
+          />
+          <p>Oferecemos aulas de ciências para alunos de todos os níveis.</p>
+          <!-- <button>Ver Disponiveis</button> -->
+        </div>
+      </section>
+    </main>
+
+    <footer></footer>
+    <script>
+      const cadastrar = () => {
+        const role = sessionStorage.getItem("role");
+        if (role == "professor") location.href = "/disponibilizar";
+        else alert("Acesso não permitido");
+      };
+    </script>
+  </body>
+</html>
